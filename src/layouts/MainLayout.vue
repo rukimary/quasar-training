@@ -2,16 +2,13 @@
   <q-layout view="lHh lpR lff">
     <q-header class="bg-primary text-white">
       <q-toolbar>
-        <q-toolbar-title>
-          <q-avatar>
-            <img src="../assets/avatar.png" />
-          </q-avatar>
-          Mary
-        </q-toolbar-title>
+        <q-toolbar-title class="q-pt-md q-ml-xl"> Bar toolbar </q-toolbar-title>
       </q-toolbar>
-      <div class="q-pt-xl q-mb-xl q-ml-xl">{{ todaysDate }}</div>
+      <div class="q-pt-xl q-mb-xl q-ml-xl">
+        <q-chip :ripple="false">{{ todaysDate }}</q-chip>
+      </div>
       <q-img
-        class="header-imgage absolute-top"
+        class="header-image absolute-top"
         src="../assets/abstract-bg.svg"
       ></q-img>
     </q-header>
@@ -19,8 +16,8 @@
     <q-drawer v-model="drawer" show-if-above :width="280" :breakpoint="800">
       <q-scroll-area
         style="
-          height: calc(100% - 167px);
-          margin-top: 167px;
+          height: calc(100% - 182px);
+          margin-top: 182px;
           border-right: 1px solid #ddd;
         "
       >
@@ -59,7 +56,7 @@
         </q-list>
       </q-scroll-area>
 
-      <q-img class="absolute-top background" style="height: 167px">
+      <q-img class="absolute-top background" style="height: 182px">
         <div class="absolute-bottom bg-transparent">
           <q-avatar size="56px" class="q-mb-sm">
             <img src="../assets/avatar.png" />
@@ -80,7 +77,7 @@
 
     <q-footer class="bg-grey-8 text-white">
       <q-toolbar>
-        <q-toolbar-title>
+        <q-toolbar-title class="q-ml-xl">
           <div>Footer</div>
         </q-toolbar-title>
       </q-toolbar>
@@ -108,7 +105,7 @@ export default {
 </script>
 
 <style lang="scss">
-.header-imgage {
+.header-image {
   height: 100%;
   z-index: -1;
 }

@@ -1,32 +1,34 @@
 <template>
-  <h2 class="heading">Pick a color!</h2>
-  <div class="q-pa-md row no-wrap items-center justify-around">
-    <q-icon size="100px" :name="colorpickerSvg" />
+  <q-page class="bg-brown-1 column">
+    <h2 class="heading">Pick a color!</h2>
+    <div class="q-pa-md row no-wrap items-center justify-around q-gutter-sm">
+      <q-icon size="100px" :name="colorpickerSvg" />
 
-    <q-btn
-      :dense="$q.screen.xs"
-      no-caps
-      label="Skin"
-      icon-right="colorize"
-      color="primary"
-    >
-      <q-popup-proxy cover transition-show="scale" transition-hide="scale">
-        <q-color v-model="colorSkin" />
-      </q-popup-proxy>
-    </q-btn>
+      <q-btn
+        :dense="$q.screen.xs"
+        no-caps
+        label="Skin"
+        icon-right="colorize"
+        color="primary"
+      >
+        <q-popup-proxy cover transition-show="scale" transition-hide="scale">
+          <q-color v-model="colorSkin" />
+        </q-popup-proxy>
+      </q-btn>
 
-    <q-btn
-      :dense="$q.screen.xs"
-      no-caps
-      label="Jewlery"
-      icon-right="colorize"
-      color="secondary"
-    >
-      <q-popup-proxy cover transition-show="scale" transition-hide="scale">
-        <q-color v-model="colorJewlery" />
-      </q-popup-proxy>
-    </q-btn>
-  </div>
+      <q-btn
+        :dense="$q.screen.xs"
+        no-caps
+        label="Jewlery"
+        icon-right="colorize"
+        color="secondary"
+      >
+        <q-popup-proxy cover transition-show="scale" transition-hide="scale">
+          <q-color v-model="colorJewlery" />
+        </q-popup-proxy>
+      </q-btn>
+    </div>
+  </q-page>
 </template>
 
 <script>

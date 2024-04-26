@@ -2,10 +2,11 @@
   <q-layout view="lHh lpR lff">
     <q-header class="bg-primary text-white">
       <q-toolbar>
-        <q-toolbar-title class="q-pt-md q-ml-xl"> Bar toolbar </q-toolbar-title>
+        <q-btn dense flat round icon="menu" @click="toggleLeftDrawer" />
+        <q-toolbar-title class="q-pt-s q-ml-s"> Bar toolbar </q-toolbar-title>
       </q-toolbar>
       <div class="q-pt-xl q-mb-xl q-ml-xl">
-        <q-chip :ripple="false">{{ todaysDate }}</q-chip>
+        <q-chip icon="event" :ripple="false">{{ todaysDate }}</q-chip>
       </div>
       <q-img
         class="header-image absolute-top"
@@ -13,7 +14,12 @@
       ></q-img>
     </q-header>
 
-    <q-drawer v-model="drawer" show-if-above :width="280" :breakpoint="800">
+    <q-drawer
+      v-model="leftDrawerOpen"
+      show-if-above
+      :width="280"
+      :breakpoint="800"
+    >
       <q-scroll-area
         style="
           height: calc(100% - 182px);
@@ -91,8 +97,12 @@ import { date } from "quasar";
 
 export default {
   setup() {
+    const leftDrawerOpen = ref(false);
     return {
-      drawer: ref(false),
+      leftDrawerOpen,
+      toggleLeftDrawer() {
+        leftDrawerOpen.value = !leftDrawerOpen.value;
+      },
     };
   },
   computed: {

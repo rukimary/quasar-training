@@ -1,8 +1,8 @@
 <template>
   <q-page class="bg-brown-1 column">
     <div class="todo-wrapper">
-      <h2 class="heading">Todo!</h2>
       <q-input
+        class="q-mt-xl"
         @keyup.enter="addTask"
         rounded
         outlined
@@ -41,6 +41,10 @@
         </q-item-section>
       </q-item>
     </q-list>
+    <div v-if="!tasks.length" class="tasks-empty absolute-center">
+      <h4 class="text-primary text-center">TODO is empty</h4>
+      <q-img style="max-width: 104px" src="../assets/empty.svg"></q-img>
+    </div>
   </q-page>
 </template>
 
@@ -49,23 +53,7 @@ export default {
   data() {
     return {
       newTask: "",
-      tasks: [
-        {
-          id: 1,
-          title: "Pet a dog",
-          done: true,
-        },
-        {
-          id: 2,
-          title: "Find a cat",
-          done: true,
-        },
-        {
-          id: 3,
-          title: "Clean your cat's litter box.",
-          done: false,
-        },
-      ],
+      tasks: [],
     };
   },
   methods: {
@@ -87,7 +75,7 @@ export default {
         });
     },
     addTask() {
-      this.tasks.push({
+      this.tasks.unshift({
         title: this.newTask,
         done: false,
       });
@@ -98,19 +86,18 @@ export default {
 </script>
 
 <style>
-.heading {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 15px;
-}
 .todo-list__item {
   min-height: 60px;
 }
 .todo-wrapper {
   max-width: 600px;
   width: 100%;
-  display: flex;
-  flex-direction: column;
   margin: 0 auto;
+}
+.tasks-empty {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  opacity: 0.8;
 }
 </style>
